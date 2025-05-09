@@ -236,7 +236,9 @@ static MTLVertexFormat SDLToMetal_VertexFormat[] = {
     MTLVertexFormatShort4Normalized,  // SHORT4_NORM
     MTLVertexFormatUShort2Normalized, // USHORT2_NORM
     MTLVertexFormatUShort4Normalized, // USHORT4_NORM
+    MTLVertexFormatHalf,              // HALF
     MTLVertexFormatHalf2,             // HALF2
+    MTLVertexFormatHalf3,             // HALF3
     MTLVertexFormatHalf4              // HALF4
 };
 SDL_COMPILE_TIME_ASSERT(SDLToMetal_VertexFormat, SDL_arraysize(SDLToMetal_VertexFormat) == SDL_GPU_VERTEXELEMENTFORMAT_MAX_ENUM_VALUE);

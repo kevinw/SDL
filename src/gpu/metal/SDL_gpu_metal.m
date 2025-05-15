@@ -4307,6 +4307,31 @@ static bool METAL_SupportsTextureFormat(
     }
 }
 
+static void *METAL_GetNativeDeviceHandle(
+    SDL_GPURenderer *driverData)
+{
+    MetalRenderer *renderer = (MetalRenderer *)driverData;
+    return (__bridge void *)renderer->device;
+}
+
+static void *METAL_GetNativeCommandBufferHandle(
+    SDL_GPUCommandBuffer *commandBuffer)
+{
+    MetalCommandBuffer *metalCommandBuffer = (MetalCommandBuffer *)commandBuffer;
+    return (__bridge void *)metalCommandBuffer->handle;
+}
+
+static void *METAL_GetNativeTextureHandle(
+    SDL_GPUTexture *texture)
+{
+    MetalTextureContainer *container = (MetalTextureContainer *)texture;
+    assert(container->textureCount == 1);
+    assert(container->activeTexture != NULL);
+    return (__bridge void *)container->activeTexture->handle;
+}
+
+
+
 // Device Creation
 
 static bool METAL_PrepareDriver(SDL_VideoDevice *this)

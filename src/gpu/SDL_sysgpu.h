@@ -1036,6 +1036,15 @@ struct SDL_GPUDevice
         SDL_GPUTextureFormat format,
         SDL_GPUSampleCount desiredSampleCount);
 
+    void *(*GetNativeDeviceHandle)(
+        SDL_GPURenderer *driverData);
+
+    void *(*GetNativeCommandBufferHandle)(
+        SDL_GPUCommandBuffer *commandBuffer);
+
+    void *(*GetNativeTextureHandle)(
+        SDL_GPUTexture *texture);
+
     // Opaque pointer for the Driver
     SDL_GPURenderer *driverData;
 
@@ -1134,7 +1143,10 @@ struct SDL_GPUDevice
     ASSIGN_DRIVER_FUNC(QueryFence, name)                    \
     ASSIGN_DRIVER_FUNC(ReleaseFence, name)                  \
     ASSIGN_DRIVER_FUNC(SupportsTextureFormat, name)         \
-    ASSIGN_DRIVER_FUNC(SupportsSampleCount, name)
+    ASSIGN_DRIVER_FUNC(SupportsSampleCount, name)           \
+    ASSIGN_DRIVER_FUNC(GetNativeDeviceHandle, name)         \
+    ASSIGN_DRIVER_FUNC(GetNativeCommandBufferHandle, name)  \
+    ASSIGN_DRIVER_FUNC(GetNativeTextureHandle, name)
 
 typedef struct SDL_GPUBootstrap
 {

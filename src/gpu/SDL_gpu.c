@@ -3031,6 +3031,31 @@ void SDL_ReleaseGPUFence(
         fence);
 }
 
+void *SDL_GPUGetNativeDeviceHandle(
+    SDL_GPUDevice *device)
+{
+    CHECK_DEVICE_MAGIC(device, NULL);
+    return device->GetNativeDeviceHandle(device->driverData);
+}
+
+void *SDL_GPUGetNativeCommandBufferHandle(
+    SDL_GPUCommandBuffer *command_buffer)
+{
+    return COMMAND_BUFFER_DEVICE->GetNativeCommandBufferHandle(command_buffer);
+}
+
+void *SDL_GPUGetNativeTextureHandle(
+    SDL_GPUDevice *device,
+    SDL_GPUTexture *texture)
+{
+    CHECK_DEVICE_MAGIC(device, NULL);
+    if (texture == NULL) {
+        return NULL;
+    }
+    return device->GetNativeTextureHandle(texture);
+}
+
+
 Uint32 SDL_CalculateGPUTextureFormatSize(
     SDL_GPUTextureFormat format,
     Uint32 width,

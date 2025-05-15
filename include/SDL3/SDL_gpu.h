@@ -4377,6 +4377,11 @@ extern SDL_DECLSPEC Uint32 SDLCALL SDL_CalculateGPUTextureFormatSize(
     Uint32 height,
     Uint32 depth_or_layer_count);
 
+extern SDL_DECLSPEC void* SDLCALL SDL_GPUGetNativeDeviceHandle(SDL_GPUDevice *device);
+extern SDL_DECLSPEC void* SDLCALL SDL_GPUGetNativeCommandBufferHandle(SDL_GPUCommandBuffer *command_buffer);
+extern SDL_DECLSPEC void* SDLCALL SDL_GPUGetNativeTextureHandle(SDL_GPUDevice *device, SDL_GPUTexture *texture);
+
+
 #ifdef SDL_PLATFORM_GDK
 
 /**

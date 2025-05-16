@@ -3055,6 +3055,12 @@ void *SDL_GPUGetNativeTextureHandle(
     return device->GetNativeTextureHandle(texture);
 }
 
+void *SDL_GPUGetNativeCommandBufferRenderEncoderHandle(
+    SDL_GPUCommandBuffer *command_buffer)
+{
+    return COMMAND_BUFFER_DEVICE->GetNativeCommandBufferRenderEncoderHandle(command_buffer);
+}
+
 
 Uint32 SDL_CalculateGPUTextureFormatSize(
     SDL_GPUTextureFormat format,

@@ -4330,6 +4330,14 @@ static void *METAL_GetNativeTextureHandle(
     return (__bridge void *)container->activeTexture->handle;
 }
 
+static void *METAL_GetNativeCommandBufferRenderEncoderHandle(
+   SDL_GPUCommandBuffer *commandBuffer)
+{
+    MetalCommandBuffer *metalCommandBuffer = (MetalCommandBuffer *)commandBuffer;
+    assert(metalCommandBuffer->renderEncoder != NULL);
+    return (__bridge void *)metalCommandBuffer->renderEncoder;
+}
+
 
 
 // Device Creation

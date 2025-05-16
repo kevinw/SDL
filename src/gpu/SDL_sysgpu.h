@@ -1042,6 +1042,9 @@ struct SDL_GPUDevice
     void *(*GetNativeCommandBufferHandle)(
         SDL_GPUCommandBuffer *commandBuffer);
 
+    void *(*GetNativeCommandBufferRenderEncoderHandle)(
+        SDL_GPUCommandBuffer *commandBuffer);
+
     void *(*GetNativeTextureHandle)(
         SDL_GPUTexture *texture);
 
@@ -1146,7 +1149,8 @@ struct SDL_GPUDevice
     ASSIGN_DRIVER_FUNC(SupportsSampleCount, name)           \
     ASSIGN_DRIVER_FUNC(GetNativeDeviceHandle, name)         \
     ASSIGN_DRIVER_FUNC(GetNativeCommandBufferHandle, name)  \
-    ASSIGN_DRIVER_FUNC(GetNativeTextureHandle, name)
+    ASSIGN_DRIVER_FUNC(GetNativeTextureHandle, name)         \
+    ASSIGN_DRIVER_FUNC(GetNativeCommandBufferRenderEncoderHandle, name)
 
 typedef struct SDL_GPUBootstrap
 {
